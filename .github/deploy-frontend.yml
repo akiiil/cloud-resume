@@ -1,0 +1,26 @@
+name: Deploy Frontend to S3
+
+on:
+  push:
+    paths:
+      - 'frontend/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install AWS CLI
+      run: sudo apt-get install -y awscli
+
+    - name: Deploy to S3
+      run: |
+        aws s3 sync frontend/ s3://akilriaz.xyz/ \
+          --delete \
+          --cache-control "no-cache, no-store, must-revalidate"
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
