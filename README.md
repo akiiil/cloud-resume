@@ -32,9 +32,9 @@ This project is a full-stack cloud-based resume site built as part of the [Cloud
 ## 🧠 Additional Context
 
 - The project contains **two deployment approaches**:
-  - `frontend/` – Manually deployed website hosted on S3.
+  - `frontend/` & `backend/` – Manually deployed website hosted on S3, with "Visitor Counter" lambda function.
   - `infra/` – Terraform code to provision and automate a full replica using IaC.
-- Any updates to frontend or infrastructure automatically trigger **CI/CD pipelines** using GitHub Actions.
+- Any updates to frontend or backend infrastructure automatically trigger **CI/CD pipelines** using GitHub Actions.
 - Only the **changed files** are updated on deployment to ensure efficiency.
 
 ---
@@ -63,14 +63,4 @@ This project is a full-stack cloud-based resume site built as part of the [Cloud
 4. **Routing & Security** → CloudFront handles distribution + Route 53 DNS + IAM permissions
 
 ---
-
-## 🙋‍♂️ Author
-
-**Akil Riaz** – [akilriaz.xyz](https://akilriaz.xyz)
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
 
