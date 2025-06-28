@@ -1,70 +1,76 @@
-# 🌐 Cloud Resume Challenge – Infrastructure as Code (IaC)
+# 🌩️ Cloud Resume Challenge – Akil Riaz
 
-This project is a full-stack implementation of the Cloud Resume Challenge, built using **Infrastructure as Code (IaC)** with **Terraform** and fully hosted on **AWS**. It features automated deployments for both frontend and backend via **GitHub Actions**.
-
----
-
-## 🚀 Tech Stack
-
-- **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** AWS Lambda, API Gateway, Python (Boto3), DynamoDB  
-- **DevOps:** Terraform, GitHub Actions, Route 53, CloudFront, S3, IAM  
-- **CI/CD:** YAML-based GitHub workflows with bash scripting  
+This project is a full-stack cloud-based resume site built as part of the [Cloud Resume Challenge](https://cloudresumechallenge.dev/). It features a responsive static website, a live visitor counter, serverless backend, and a fully automated Infrastructure as Code (IaC) deployment using AWS services and GitHub Actions.
 
 ---
 
-## ⚙️ Features
+## 🚀 Features
 
-- **Visitor Counter Backend**  
-  Built with AWS Lambda, API Gateway, and DynamoDB. REST API integration and CORS configuration are enabled, with secure access via IAM roles and policies.
-
-- **Backend Logic**  
-  Written in Python using the Boto3 library to perform `GetItem` and `UpdateItem` operations on DynamoDB.
-
-- **Frontend Hosting**  
-  Static website hosted on a private S3 bucket and delivered via CloudFront. Uses custom domain (`iac.akilriaz.xyz`) with HTTPS (ACM). CORS and CloudFront OAC configured.
-
-- **Automated Deployments**  
-  GitHub Actions workflows detect changes to frontend or Terraform files and apply updates only where necessary, ensuring efficient infrastructure changes and version control.
+- 🌐 **Frontend** built with HTML, CSS, and JavaScript, hosted on AWS S3.
+- 📊 **Visitor Counter** implemented using AWS Lambda, API Gateway, and DynamoDB.
+- 🔐 Configured **CORS**, IAM roles, and policies to ensure secure API access.
+- 🔁 Fully automated **CI/CD pipelines** using GitHub Actions and YAML workflows.
+- ☁️ Entire infrastructure provisioned using **Terraform** (Infrastructure as Code).
+- 📂 Includes **both** manually deployed and Terraform-managed versions of the website.
 
 ---
 
-## 🧱 Project Structure
+## 📁 Project Structure
 
 ```
-infra/
-├── backend/
-│   └── lambda_function.py
-├── frontend/
-│   ├── index.html
-│   ├── script.js
-│   └── style.css
-├── .github/
-│   └── workflows/
-│       └── deploy.yml
-├── main.tf
-└── ...
+.
+├── backend/           # Lambda function (visitor counter)
+├── frontend/          # Manually deployed static site (non-Terraform)
+├── infra/             # Infrastructure as Code (Terraform-managed website)
+├── .github/           # GitHub Actions workflows for CI/CD
+├── README.md          # Project documentation
+└── .gitignore
 ```
 
 ---
 
-## 📌 Architecture Diagram
+## 🧠 Additional Context
 
-![Architecture Diagram](./architecture.png)
-
----
-
-## 🔐 Security Highlights
-
-- IAM roles with fine-grained permissions for Lambda and DynamoDB  
-- CloudFront OAC ensures private access to S3  
-- CORS enabled for API Gateway to support frontend interactions  
-- ACM for SSL/TLS certificate on custom subdomain  
+- The project contains **two deployment approaches**:
+  - `frontend/` – Manually deployed website hosted on S3.
+  - `infra/` – Terraform code to provision and automate a full replica using IaC.
+- Any updates to frontend or infrastructure automatically trigger **CI/CD pipelines** using GitHub Actions.
+- Only the **changed files** are updated on deployment to ensure efficiency.
 
 ---
 
-## 👨‍💻 Author
+## 🛠️ Tools & Technologies
 
-**Akil Riaz**  
-Master of Data Science – Monash University  
-🌐 [akilriaz.xyz](https://akilriaz.xyz)
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Python (with `boto3`), AWS Lambda, API Gateway, DynamoDB
+- **Infrastructure**: Terraform, S3, CloudFront, Route 53, IAM
+- **Automation**: GitHub, GitHub Actions, YAML, Bash
+- **DevOps Concepts**: Infrastructure as Code (IaC), CI/CD, REST API, CORS
+
+---
+
+## 📷 Architecture Diagram
+
+![Architecture Diagram](./path-to-your-architecture-diagram.png)
+
+---
+
+## 📈 Deployment Workflow
+
+1. **Frontend Code Push** → Triggers GitHub Actions → Deploy to S3 → Invalidate CloudFront Cache
+2. **Terraform Code Push** → Triggers GitHub Actions → Plan & Apply Terraform Changes
+3. **Visitor Counter** → Lambda + API Gateway handle API requests and update DynamoDB
+4. **Routing & Security** → CloudFront handles distribution + Route 53 DNS + IAM permissions
+
+---
+
+## 🙋‍♂️ Author
+
+**Akil Riaz** – [akilriaz.xyz](https://akilriaz.xyz)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
