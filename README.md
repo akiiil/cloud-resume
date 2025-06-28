@@ -51,7 +51,7 @@ This project is a full-stack cloud-based resume site built as part of the [Cloud
 
 ## 📷 Architecture Diagram
 
-![Architecture Diagram](./Cloud Resume Architecture.png)
+![Architecture Diagram](Cloud Resume Architecture.png)
 
 ---
 
