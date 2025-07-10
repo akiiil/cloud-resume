@@ -1,6 +1,6 @@
 # 🌩️ Cloud Resume Challenge – Akil Riaz
 
-*[akilriaz.xyz](akilriaz.xyz)*
+*[akilriaz.xyz](https://www.akilriaz.xyz)*
 
 This project is a full-stack cloud-based resume site built as part of the [Cloud Resume Challenge](https://cloudresumechallenge.dev/). It features a responsive static website, a live visitor counter, serverless backend, and a fully automated Infrastructure as Code (IaC) deployment using AWS services and GitHub Actions.
 
